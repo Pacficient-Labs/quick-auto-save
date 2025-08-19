@@ -2,8 +2,8 @@
   "name": "quick-auto-save",
   "displayName": "Quick Auto-Save",
   "description": "Ultra-fast auto-save for VS Code with configurable intervals",
-  "version": "1.0.0",
-  "publisher": "Pacficient Labs",
+"version": "1.0.1",
+  "publisher": "PacficientLabs",
   "engines": {
     "vscode": "^1.60.0"
   },
