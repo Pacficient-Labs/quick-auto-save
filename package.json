@@ -1,0 +1,141 @@
+{
+  "name": "quick-auto-save",
+  "displayName": "Quick Auto-Save",
+  "description": "Ultra-fast auto-save for VS Code with configurable intervals",
+  "version": "1.0.0",
+  "publisher": "Pacficient Labs",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "auto-save",
+    "save",
+    "productivity",
+    "quick-save"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pacficientlabs/quick-auto-save.git"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "quickAutoSave.toggle",
+        "title": "Toggle Quick Auto-Save",
+        "category": "Quick Auto-Save"
+      },
+      {
+        "command": "quickAutoSave.saveNow",
+        "title": "Save All Files Now",
+        "category": "Quick Auto-Save"
+      },
+      {
+        "command": "quickAutoSave.showStats",
+        "title": "Show Statistics",
+        "category": "Quick Auto-Save"
+      },
+      {
+        "command": "quickAutoSave.showLogs",
+        "title": "Show Logs",
+        "category": "Quick Auto-Save"
+      },
+      {
+        "command": "quickAutoSave.clearStats",
+        "title": "Clear Statistics",
+        "category": "Quick Auto-Save"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "quickAutoSave.toggle",
+        "key": "ctrl+shift+alt+s",
+        "mac": "cmd+shift+alt+s"
+      }
+    ],
+    "configuration": {
+      "title": "Quick Auto-Save",
+      "properties": {
+        "quickAutoSave.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Quick Auto-Save extension"
+        },
+        "quickAutoSave.saveDelay": {
+          "type": "number",
+          "default": 200,
+          "minimum": 50,
+          "maximum": 10000,
+          "description": "Delay in milliseconds before auto-saving after the last change"
+        },
+        "quickAutoSave.saveOnEveryChange": {
+          "type": "boolean",
+          "default": false,
+          "description": "Save immediately on every keystroke (can be resource intensive)"
+        },
+        "quickAutoSave.saveUntitled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable auto-save for untitled documents"
+        },
+        "quickAutoSave.enabledFileTypes": {
+          "type": "array",
+          "default": [],
+          "description": "File extensions to enable auto-save for (empty array means all files). Example: ['.js', '.ts', '.py']"
+        },
+        "quickAutoSave.excludedFileTypes": {
+          "type": "array",
+          "default": [".log", ".tmp"],
+          "description": "File extensions to exclude from auto-save"
+        },
+        "quickAutoSave.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Quick Auto-Save status in status bar"
+        },
+        "quickAutoSave.showNotifications": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show notifications when files are auto-saved"
+        },
+        "quickAutoSave.maxFileSizeKB": {
+          "type": "number",
+          "default": 1024,
+          "minimum": 1,
+          "maximum": 10240,
+          "description": "Maximum file size in KB to auto-save (prevents performance issues on large files)"
+        },
+        "quickAutoSave.enableDebugLogging": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable detailed debug logging to output channel"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
+    "typescript": "^4.7.4",
+    "vsce": "^2.15.0"
+  }
+}
