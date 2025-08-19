@@ -24,7 +24,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pacficientlabs/quick-auto-save.git"
+    "url": "https://github.com/Pacficient-Labs/quick-auto-save.git"
   },
   "contributes": {
     "commands": [
