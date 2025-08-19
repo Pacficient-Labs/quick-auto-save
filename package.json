@@ -19,6 +19,10 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "bugs": {
+    "url": "https://github.com/Pacficient-Labs/quick-auto-save/issues"
+  },
+  "homepage": "https://github.com/Pacficient-Labs/quick-auto-save#readme",
   "main": "./out/extension.js",
   "icon": "icon.png",
   "license": "MIT",
